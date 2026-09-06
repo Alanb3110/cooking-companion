@@ -1,5 +1,5 @@
 const APP_VERSION = '0.3.0-rc.1';
-const CACHE_REVISION = 'overnight-wave2-1';
+const CACHE_REVISION = 'library-filters-renders-1';
 const CACHE_PREFIX = 'woodfire-companion-';
 const CACHE_NAME = `${CACHE_PREFIX}${APP_VERSION}-${CACHE_REVISION}`;
 const APP_ASSETS = [
@@ -10,6 +10,7 @@ const APP_ASSETS = [
   './journal.css',
   './observations.css',
   './share.css',
+  './library-filters.css',
   './app.js',
   './js/active-cook-controller.js',
   './js/planner.js',
@@ -18,6 +19,7 @@ const APP_ASSETS = [
   './js/recipe-loader.js',
   './js/step-details.js',
   './js/library.js',
+  './js/library-filters.js',
   './js/recipe-hero.js',
   './js/settings.js',
   './js/share.js',

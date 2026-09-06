@@ -1,4 +1,5 @@
 import { installRecipeHeroImageBridge } from './recipe-hero.js';
+import { installLibraryQuickFilters } from './library-filters.js';
 
 const VALID_STATUSES = new Set(['available', 'coming_soon']);
 const VALID_QUALIFICATIONS = new Set(['untested', 'test_cooked', 'validated']);
@@ -68,6 +69,7 @@ export async function loadLibrary(url = './recipes/index.json') {
   const library = await response.json();
   const validation = validateLibrary(library);
   if (!validation.valid) throw new Error(`Invalid recipe library: ${validation.errors.join(' | ')}`);
+  installLibraryQuickFilters(library);
   return library;
 }
 
