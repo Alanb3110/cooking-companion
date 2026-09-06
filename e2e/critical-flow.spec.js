@@ -4,6 +4,14 @@ test('mobile critical flow survives reload, verifies offline cache readiness and
   await page.goto('/');
   await expect(page.locator('button.recipe-card').first()).toBeVisible();
 
+  const weeknightFilter = page.getByRole('button', { name: /^Semaine ·/ });
+  await expect(weeknightFilter).toBeVisible();
+  await weeknightFilter.click();
+  await expect(page.locator('.library-filter-summary')).toContainText('≤ 60 min');
+  await expect(page.getByRole('button', { name: /Pork Belly Burnt Ends/i })).toBeHidden();
+  await expect(page.getByRole('button', { name: /Egg Fried Rice/i })).toBeVisible();
+  await page.getByRole('button', { name: /^Toutes ·/ }).click();
+
   await page.getByRole('button', { name: /Pork Belly Burnt Ends/i }).click();
   await expect(page.locator('#recipeTitle')).toContainText('Pork Belly Burnt Ends');
   const initialServings = Number(await page.locator('#servingsValue').textContent());
