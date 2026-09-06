@@ -1,5 +1,39 @@
 import { expect, test } from '@playwright/test';
 
+test('mobile WebKit decodes every recipe cover', async ({ page }) => {
+  await page.goto('/');
+
+  const failures = await page.evaluate(async () => {
+    const manifestResponse = await fetch('./recipes/index.json', { cache: 'no-store' });
+    if (!manifestResponse.ok) throw new Error(`Recipe manifest returned ${manifestResponse.status}.`);
+    const manifest = await manifestResponse.json();
+    const broken = [];
+
+    for (const recipe of manifest.recipes || []) {
+      const imageUrl = recipe.visual?.imageUrl;
+      if (!imageUrl) {
+        broken.push(`${recipe.id}: missing imageUrl`);
+        continue;
+      }
+
+      const image = new Image();
+      image.src = new URL(imageUrl, window.location.href).href;
+      try {
+        await image.decode();
+        if (!image.naturalWidth || !image.naturalHeight) {
+          broken.push(`${recipe.id}: decoded with invalid dimensions`);
+        }
+      } catch (error) {
+        broken.push(`${recipe.id}: ${error?.message || 'image decode failed'}`);
+      }
+    }
+
+    return broken;
+  });
+
+  expect(failures).toEqual([]);
+});
+
 test('mobile critical flow survives reload, verifies offline cache readiness and restores journal data', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('button.recipe-card').first()).toBeVisible();
