@@ -62,5 +62,5 @@ test('traceability register keeps official temperature and marinade sources expl
   assert.match(traceability, /fsis\.usda\.gov\/.*safe-temperature-chart/);
   assert.match(traceability, /fsis\.usda\.gov\/.*grilling-and-food-safety/);
   assert.match(traceability, /anses\.fr\//);
-  assert.match(traceability, /2026-09-02/);
+  assert.match(traceability, /2026-09-05/);
 });
