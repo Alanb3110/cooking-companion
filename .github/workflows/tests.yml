@@ -6,58 +6,7 @@ on:
       - main
   pull_request:
 
-permissions:
-  contents: write
-
 jobs:
-  repair-cover-encoding:
-    if: github.event_name == 'pull_request' && github.event.pull_request.number == 63
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: Install WebP encoder
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
-      - name: Re-encode known Safari-incompatible WebPs
-        shell: bash
-        run: |
-          set -euo pipefail
-          declare -A expected=(
-            [assets/recipes/sweet-savory-turkey-zucchini-gratin.webp]=86d8e05b0d5204d31ddde052311dd3a02237bcde
-            [assets/recipes/maple-mustard-soy-pork-tenderloin.webp]=cad34d9cdf1c6cb12f09de10bbf5f657d23f7e80
-            [assets/recipes/woodfire-chicken-fajitas.webp]=ce4742d75630f215dd9380f629a22b4934b3d199
-          )
-
-          changed=0
-          for file in "${!expected[@]}"; do
-            actual="$(git hash-object "$file")"
-            if [[ "$actual" != "${expected[$file]}" ]]; then
-              echo "$file already normalized or changed ($actual); skipping"
-              continue
-            fi
-
-            tmp="${file%.webp}.normalized.webp"
-            ffmpeg -hide_banner -loglevel error -y -i "$file" \
-              -c:v libwebp -quality 88 -compression_level 6 -pix_fmt yuv420p "$tmp"
-            mv "$tmp" "$file"
-            changed=1
-          done
-
-          if [[ "$changed" -eq 0 ]]; then
-            echo "No normalization required."
-            exit 0
-          fi
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/recipes/*.webp
-          git commit -m "fix: normalize WebP covers for Safari"
-          git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
-
   test:
     runs-on: ubuntu-latest
     steps:
