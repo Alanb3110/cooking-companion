@@ -1,4 +1,4 @@
-# Woodfire Companion — Recipe expansion 2026-08-31
+# Cooking Companion — Recipe expansion 2026-08-31
 
 ## Goal
 Expand the curated library with meals chosen primarily to exercise distinct planning behaviours rather than to maximise recipe count.

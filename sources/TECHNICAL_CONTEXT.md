@@ -1,7 +1,7 @@
-# Woodfire Companion — Technical Context Source
+# Cooking Companion — Technical Context Source
 
 ## Current implementation
-Woodfire Companion is a zero-backend static PWA for GitHub Pages and installed iPhone/Safari use.
+Cooking Companion is a zero-backend static PWA for GitHub Pages and installed iPhone/Safari use.
 
 The application uses vanilla HTML/CSS/JavaScript with native ES modules. No runtime framework, backend, account system or external API is required.
 

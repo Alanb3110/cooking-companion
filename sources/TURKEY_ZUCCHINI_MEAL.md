@@ -1,4 +1,4 @@
-# Woodfire Companion — Roulé de dinde + gratin de courgettes
+# Cooking Companion — Roulé de dinde + gratin de courgettes
 
 ## Status
 Second executable reference meal, reconstructed from the meal cooked/discussed on 2026-08-26/28 and encoded as `recipes/sweet-savory-turkey-zucchini-gratin.json`, content version 3.

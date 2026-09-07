@@ -1,4 +1,4 @@
-# Woodfire Companion — Active Session V3
+# Cooking Companion — Active Session V3
 
 ## Purpose
 Session V3 extends the start/finish lifecycle introduced by Session V2 with two practical recovery/testing concepts:

@@ -1,4 +1,4 @@
-# Woodfire Companion — Active Cook V1 Source
+# Cooking Companion — Active Cook V1 Source
 
 ## Scope
 The active-cooking UI is connected to Planner V1 and exposes explicit step lifecycle plus structured observation/recheck controls.

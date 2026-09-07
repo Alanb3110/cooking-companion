@@ -1,7 +1,7 @@
-# Woodfire Companion — Sharing V1
+# Cooking Companion — Sharing V1
 
 ## Goal
-Let a cook share the public Woodfire Companion PWA with friends in one tap, without adding accounts, a backend, analytics or runtime services.
+Let a cook share the public Cooking Companion PWA with friends in one tap, without adding accounts, a backend, analytics or runtime services.
 
 ## V1 scope
 The recipe-library view exposes a **Partager l’app** action.
@@ -39,7 +39,7 @@ Sharing is intentionally available from the library, not from the active-cook co
 The feature does not use `skipWaiting()` and does not change the conservative worker lifecycle used to protect an already-open cook.
 
 ## Privacy
-Sharing sends only the public application title, short description and canonical public URL to the browser/platform share mechanism selected by the user. Woodfire Companion itself does not upload cook data, journal entries, settings, temperatures or shopping state.
+Sharing sends only the public application title, short description and canonical public URL to the browser/platform share mechanism selected by the user. Cooking Companion itself does not upload cook data, journal entries, settings, temperatures or shopping state.
 
 ## Tests
 Automated tests protect:

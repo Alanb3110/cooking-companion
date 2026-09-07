@@ -1,5 +1,5 @@
-const SHARE_TITLE = 'Woodfire Companion';
-const SHARE_TEXT = 'Planifie et suis un repas complet au Ninja Woodfire avec Woodfire Companion.';
+const SHARE_TITLE = 'Cooking Companion';
+const SHARE_TEXT = 'Planifie et suis un repas complet, au Woodfire, au wok ou avec tes autres équipements.';
 const TOAST_DURATION_MS = 2200;
 
 export function canonicalAppUrl(href) {

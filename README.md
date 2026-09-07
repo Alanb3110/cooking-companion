@@ -1,6 +1,6 @@
-# Woodfire Companion
+# Cooking Companion
 
-Mobile-first static PWA for planning and executing complete Ninja Woodfire meals.
+Mobile-first static PWA for planning and executing complete meals across multiple cooking resources.
 
 Current product flow:
 
@@ -10,7 +10,7 @@ No server, runtime API or account is required. Active state, shopping checks, se
 
 ## Current maturity
 
-Woodfire Companion has moved beyond the original single-meal POC.
+Cooking Companion has moved beyond the original single-meal POC.
 
 Implemented today:
 - manifest-driven illustrated multi-recipe library;
@@ -19,7 +19,7 @@ Implemented today:
 - scaled ingredients and categorized shopping/prep checklist;
 - serving-aware advance preparation for night-before marinades/prep;
 - dependency-aware serving-time planner;
-- Woodfire exclusive-resource conflict resolution;
+- Woodfire exclusive-resource conflict resolution, plus accurately declared non-Woodfire resources and dependency sequencing;
 - buffers, actual timestamps, explicit delays and observation-driven rechecks;
 - active-cook `upcoming / active / done` lifecycle;
 - fast optional temperature logging;
@@ -187,7 +187,7 @@ Planner V1 builds schedules primarily from:
 - expected completion from pending observation rechecks;
 - explicit user delays.
 
-The Woodfire is currently the only automatically conflict-resolved exclusive resource. Other declared resources can run in parallel but are not generally conflict-solved yet.
+The Woodfire is currently the only automatically conflict-resolved exclusive resource. Other declared resources, including a wok, can run in parallel unless the recipe expresses their order through dependencies; broader conflict solving remains deferred until real cooks demonstrate the need.
 
 Serving count scales ingredients, advance-prep guidance and structured active-cook quantities, but Planner V1 does not synthesize extra batches or automatically alter duration from serving count. Recipe serving ranges must therefore stay within one credible declared execution structure.
 

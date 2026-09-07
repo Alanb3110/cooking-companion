@@ -1,5 +1,7 @@
 const APP_VERSION = '0.3.0-rc.1';
-const CACHE_REVISION = 'recipe-cover-final-1';
+const CACHE_REVISION = 'cooking-companion-wok-1';
+// Keep the historical prefix: it is an installed-PWA compatibility identifier,
+// not a product label. Changing it could strand an active cook on an old cache.
 const CACHE_PREFIX = 'woodfire-companion-';
 const CACHE_NAME = `${CACHE_PREFIX}${APP_VERSION}-${CACHE_REVISION}`;
 const APP_ASSETS = [

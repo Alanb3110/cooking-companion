@@ -1,9 +1,9 @@
-# Woodfire Companion — ChatGPT Project Instructions
+# Cooking Companion — ChatGPT Project Instructions
 
-Use this as the compact instruction set for work on Woodfire Companion. Detailed product, technical and cooking contracts live in `sources/` and are the source of truth. Before significant changes, read the relevant sources **and current GitHub state**; do not infer current implementation from an older roadmap.
+Use this as the compact instruction set for work on Cooking Companion. Detailed product, technical and cooking contracts live in `sources/` and are the source of truth. Before significant changes, read the relevant sources **and current GitHub state**; do not infer current implementation from an older roadmap.
 
 ## Goal
-Woodfire Companion is a mobile-first Ninja Woodfire cooking copilot, not primarily a recipe viewer.
+Cooking Companion is a mobile-first, multi-equipment cooking copilot, not primarily a recipe viewer. The Ninja Woodfire remains first-class, but no recipe is required to use it: support Woodfire-only, non-Woodfire and mixed-equipment meals.
 
 Canonical flow:
 **illustrated recipe library → servings + desired meal time → scaled ingredients/shopping + prep → generated full-meal plan → active cooking assistant → cook journal**.
@@ -19,7 +19,7 @@ The core differentiator is orchestration: transform structured recipe data into 
 - Plan around desired serving time.
 - Treat durations as estimates where cooking state matters; temperature/tenderness/appearance criteria override the clock when appropriate.
 - Actual starts/completions are historical facts. Delays/rechecks propagate through dependencies; do not blindly shift unrelated work.
-- Support parallel tasks. The Woodfire is currently the only automatically conflict-resolved exclusive resource.
+- Support parallel tasks. The Woodfire is currently the only automatically conflict-resolved exclusive resource; declare other resources accurately and use dependencies until a demonstrated need justifies broader conflict solving.
 - Never sacrifice food quality solely to preserve the planned clock.
 
 ## Recipe availability vs qualification
@@ -65,7 +65,7 @@ Prefer vanilla HTML/CSS/JS while manageable. Do not add a backend, accounts, pai
 ## Active-cook UX priority
 1. next action + countdown;
 2. current active action;
-3. current Woodfire configuration;
+3. current appliance configuration, including detailed Woodfire configuration when relevant;
 4. completion/observation control;
 5. rapid temperature entry when enabled;
 6. detailed instructions on demand;
@@ -100,7 +100,7 @@ Known household defaults: generous sauces; sweet-savoury welcome; thyme generall
 2. Run representative real-cook qualifications across distinct planner patterns: fast temperature/parallel meal, genuine Woodfire conflict, long tenderness/recheck meal.
 3. Feed journal observations back into recipe versions and qualification.
 4. Complete stale-branch cleanup and protect `main` with CI if repository settings allow it.
-5. Extend flexible windows, non-Woodfire conflict solving, reusable components or batching only when real meals prove the need.
+5. Extend flexible windows, non-Woodfire conflict solving, reusable components or batching only when real meals prove the need: **real cooks → observations → demonstrated need → product evolution**.
 6. Continue small `app.js` extractions only when ownership becomes materially unclear; do not refactor for aesthetics alone.
 7. Defer predictive ETA until enough clean history exists to expose honest uncertainty.
 

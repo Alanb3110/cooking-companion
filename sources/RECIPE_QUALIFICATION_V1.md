@@ -1,4 +1,4 @@
-# Woodfire Companion — Recipe Qualification V1
+# Cooking Companion — Recipe Qualification V1
 
 ## Purpose
 Recipe executability and culinary maturity are separate concerns.
@@ -39,6 +39,7 @@ UI label: `Validée`.
 - Roulé de dinde + gratin de courgettes: `test_cooked`. The recipe is reconstructed from the real meal cooked/discussed on 2026-08-26/28 and uses first-cook baselines.
 - Tacos barbacoa de bœuf fumée: `test_cooked`. The source records it as a real meal promoted into the shared planner pipeline, but no comparable documented refinement loop is yet recorded.
 - All recipes introduced in the 2026-08-31 planner-pattern and second expansion waves: `untested` until a representative cook is recorded.
+- Poulet miel–sésame–gingembre, udon & légumes sautés: `test_cooked`, cooked successfully in a wok on 2026-09-07. Confirmed: sot-l’y-laisse works well; the clean-glaze/raw-marinade split matters; lightly seasoned udon preserve the balance; vegetables remain crisp; overall result was very good. One successful cook is not yet `validated`.
 
 Do not silently promote a qualification level based only on automated tests or on the fact that a recipe is marked `available`.
 

@@ -88,7 +88,7 @@ function parseJournalBackup(serialized) {
     throw new Error('Sauvegarde de journal invalide.');
   }
   if (payload.kind !== JOURNAL_BACKUP_KIND) {
-    throw new Error('Ce fichier n’est pas une sauvegarde Woodfire Companion reconnue.');
+    throw new Error('Ce fichier n’est pas une sauvegarde Cooking Companion reconnue.');
   }
   if (!Number.isInteger(payload.version) || payload.version < 1 || payload.version > JOURNAL_BACKUP_VERSION) {
     throw new Error('Version de sauvegarde non prise en charge.');

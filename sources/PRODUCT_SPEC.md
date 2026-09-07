@@ -1,10 +1,10 @@
-# Woodfire Companion — Product Source
+# Cooking Companion — Product Source
 
 ## Purpose
-This file is the current product source of truth for Woodfire Companion.
+This file is the current product source of truth for Cooking Companion.
 
 ## Product definition
-Woodfire Companion is an illustrated recipe library plus a meal-execution engine for Ninja Woodfire users.
+Cooking Companion is an illustrated recipe library plus a multi-equipment meal-execution engine. The Ninja Woodfire is a first-class appliance, not a mandatory one: recipes may use a wok, pan, saucepan, oven, fridge and passive preparation, independently or alongside Woodfire work.
 
 The user chooses what to cook; the application converts that choice into scaled ingredients/shopping, advance preparation, a resource-aware schedule and a low-friction active-cooking interface.
 

@@ -18,7 +18,7 @@ test('canonical app share URL preserves the GitHub Pages subpath and removes tra
   );
 });
 
-test('native share receives a clean Woodfire Companion payload', async () => {
+test('native share receives a clean Cooking Companion payload', async () => {
   let payload = null;
   const result = await shareApp({
     href: 'https://example.github.io/woodfire-companion/?debug=1',

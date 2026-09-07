@@ -147,5 +147,5 @@ test('planner stress matrix preserves facts and resolves every movable constrain
     }
   }
 
-  assert.equal(scenarioCount, 22_156, 'Update the documented stress-matrix cardinality when the library changes.');
+  assert.equal(scenarioCount, 22_672, 'Update the documented stress-matrix cardinality when the library changes.');
 });

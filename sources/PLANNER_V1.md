@@ -1,4 +1,4 @@
-# Woodfire Companion — Planner V1 Source
+# Cooking Companion — Planner V1 Source
 
 ## Scope
 Planner V1 replaces direct fixed-offset placement as the primary scheduling mechanism. It is a pure/testable scheduling layer: recipe data defines durations, dependencies, serving anchors and resources; the engine produces timestamps around the desired serving time.

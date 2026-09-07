@@ -1,4 +1,4 @@
-# Woodfire Companion — Active Session V2
+# Cooking Companion — Active Session V2
 
 ## Purpose
 Session V2 separates **an action starting** from **an action finishing**. This is required for an active-cook copilot: long phases such as smoking, roasting, resting or baking must be able to remain `active` while the user performs parallel work.

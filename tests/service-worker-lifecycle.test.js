@@ -39,7 +39,7 @@ test('activation still claims the current page when activation is allowed', () =
   assert.match(serviceWorker, /self\.clients\.claim\s*\(\)/);
 });
 
-test('activation deletes only obsolete Woodfire Companion caches', async () => {
+test('activation deletes only obsolete Cooking Companion caches', async () => {
   const deleted = [];
   let claimed = false;
   const caches = {

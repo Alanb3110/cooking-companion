@@ -1,4 +1,4 @@
-# Woodfire Companion — Cook Journal V1 Source
+# Cooking Companion — Cook Journal V1 Source
 
 ## Scope
 Cook Journal V1 stores completed meal sessions locally and exposes them from the recipe library. It is local-first/offline and does not introduce accounts, cloud storage or a backend.

@@ -1,4 +1,4 @@
-# Woodfire Companion — Korean pulled pork + Egg Fried Rice
+# Cooking Companion — Korean pulled pork + Egg Fried Rice
 
 ## Status
 Two separate executable recipes are maintained:
@@ -31,7 +31,7 @@ The fried-rice card defines a 2-person gochujang version based on:
 - 150–250 g Korean pulled pork;
 - bacon as an additional optional suggestion on the original card.
 
-Woodfire Companion deliberately omits bacon from the V1 recipe, shopping list and instructions so the generic fried-rice path stays focused on the core egg/rice/vegetable method plus the two options explicitly retained in the app: gochujang and Korean pulled pork.
+Cooking Companion deliberately omits bacon from the V1 recipe, shopping list and instructions so the generic fried-rice path stays focused on the core egg/rice/vegetable method plus the two options explicitly retained in the app: gochujang and Korean pulled pork.
 
 ## Product modeling decision
 The two dishes are **not** encoded as one meal recipe.
