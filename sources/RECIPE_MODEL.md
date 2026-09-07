@@ -1,4 +1,4 @@
-# Woodfire Companion — Recipe / Meal Data Model Source
+# Cooking Companion — Recipe / Meal Data Model Source
 
 ## Status
 This file describes the **implemented semantic model** used by the current application. Exact field validation details live in `sources/RECIPE_SCHEMA_V1.md`; planner behavior lives in `sources/PLANNER_V1.md`.

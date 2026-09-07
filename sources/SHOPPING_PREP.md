@@ -1,4 +1,4 @@
-# Woodfire Companion — Shopping & Pre-cook Source
+# Cooking Companion — Shopping & Pre-cook Source
 
 ## Scope
 This source defines the reusable shopping-list and pre-cook preparation behavior. It complements `PRODUCT_SPEC.md`, `RECIPE_MODEL.md` and `RECIPE_SCHEMA_V1.md` without changing planner semantics.

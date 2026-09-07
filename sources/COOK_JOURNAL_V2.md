@@ -1,4 +1,4 @@
-# Woodfire Companion — Cook Journal V2 Source
+# Cooking Companion — Cook Journal V2 Source
 
 ## Scope
 Cook Journal V2 extends the local completed-cook history with lightweight feedback for the next cook while preserving all V1 timing/temperature/history data.

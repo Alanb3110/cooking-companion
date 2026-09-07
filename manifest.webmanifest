@@ -1,7 +1,7 @@
 {
-  "name": "Woodfire Companion",
-  "short_name": "Woodfire",
-  "description": "Bibliothèque de recettes Woodfire et copilote de cuisson du repas complet.",
+  "name": "Cooking Companion",
+  "short_name": "Cooking",
+  "description": "Bibliothèque de recettes et copilote d’orchestration du repas complet, multi-équipements.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

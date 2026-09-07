@@ -1,4 +1,4 @@
-# Woodfire Companion — Multi-recipe acceptance contract
+# Cooking Companion — Multi-recipe acceptance contract
 
 ## Purpose
 A recipe marked `available` in `recipes/index.json` is executable product content, not merely a library card. It must work through the complete local application flow without recipe-specific application code.

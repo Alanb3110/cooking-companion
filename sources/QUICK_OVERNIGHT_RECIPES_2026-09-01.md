@@ -1,4 +1,4 @@
-# Woodfire Companion — Quick overnight-prep recipe batch (2026-09-01)
+# Cooking Companion — Quick overnight-prep recipe batch (2026-09-01)
 
 ## Purpose
 Add a small group of weekday-friendly complete meals where the main flavor/prep work happens the night before and the next-day active cook stays short.

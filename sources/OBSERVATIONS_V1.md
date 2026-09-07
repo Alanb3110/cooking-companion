@@ -1,4 +1,4 @@
-# Woodfire Companion — Active observations / rechecks V1
+# Cooking Companion — Active observations / rechecks V1
 
 ## Purpose
 Observation controls turn uncertain cooking checkpoints into explicit active-cook actions without pretending that estimated durations are exact.

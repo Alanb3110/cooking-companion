@@ -1,7 +1,7 @@
-# Woodfire Companion — Tacos Barbacoa Meal
+# Cooking Companion — Tacos Barbacoa Meal
 
 ## Status
-Executable curated meal for Woodfire Companion. Recipe file: `recipes/smoked-beef-barbacoa.json`, current content version **2**.
+Executable curated meal for Cooking Companion. Recipe file: `recipes/smoked-beef-barbacoa.json`, current content version **2**.
 
 This meal promotes the previous family barbacoa plan into the shared Recipe Schema V1 / Planner V1 pipeline rather than adding recipe-specific UI or planner logic.
 

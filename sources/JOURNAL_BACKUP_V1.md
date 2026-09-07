@@ -1,4 +1,4 @@
-# Woodfire Companion — Journal Backup V1 Source
+# Cooking Companion — Journal Backup V1 Source
 
 ## Scope
 Journal Backup V1 protects the local-first Cook Journal against browser/site-data loss without introducing accounts, cloud sync or a backend.

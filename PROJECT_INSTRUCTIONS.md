@@ -1,7 +1,9 @@
-# Woodfire Companion — Project Instructions
+# Cooking Companion — Project Instructions
 
 ## Mission
-Woodfire Companion is a mobile-first cooking copilot for the Ninja Woodfire. It turns a chosen meal into an executable plan that gets the whole meal ready near the desired serving time.
+Cooking Companion is a mobile-first, multi-equipment cooking copilot. It turns a chosen meal into an executable plan that gets the whole meal ready near the desired serving time.
+
+The Ninja Woodfire remains a first-class supported appliance with its detailed configuration and exclusive-resource handling. It is not a prerequisite: a recipe may use a wok, pan, saucepan, oven, fridge or passive preparation, alone or in parallel with Woodfire work.
 
 The product is not primarily a recipe reader. Its differentiator is the orchestration layer between structured recipe content and real cooking.
 
@@ -10,7 +12,7 @@ Canonical flow:
 **recipe library → meal configuration → shopping/prep → generated plan → active cook → cook journal**
 
 ## Product principles
-1. **Execution first.** During cooking, show what to do now, what happens next and the exact Woodfire configuration.
+1. **Execution first.** During cooking, show what to do now, what happens next and, when applicable, the exact appliance configuration.
 2. **Whole-meal planning.** Include main, sides, sauces, stovetop work, chilling, resting, plating and advance preparation.
 3. **Few taps.** Frequent actions should take 1–3 taps. Temperature logging must remain extremely fast.
 4. **Mobile first.** Installed iPhone/PWA is the reference UX; desktop is secondary.
@@ -24,7 +26,7 @@ Canonical flow:
 
 ## Reference user journey
 ### 1. Library
-Show illustrated recipe/meal cards with total time, active preparation time, difficulty, serving range, major Woodfire modes and culinary qualification.
+Show illustrated recipe/meal cards with total time, active preparation time, difficulty, serving range, relevant equipment/modes and culinary qualification.
 
 `recipes/index.json` separates:
 - `status` — executability (`available` / `coming_soon`);
@@ -63,7 +65,7 @@ The planner permits useful parallel work. The Ninja Woodfire is currently the on
 Prioritize:
 1. next action + countdown;
 2. current active step;
-3. exact Woodfire configuration;
+3. current appliance configuration, including exact Woodfire settings where applicable;
 4. completion/observation controls;
 5. rapid temperature entry when enabled;
 6. detailed instructions on demand;
@@ -175,6 +177,7 @@ Do not extend these areas until real meals prove the need.
 - Freeze each active cook on a detached recipe snapshot.
 - Keep shopping/settings/journal stores separate when lifecycles differ.
 - Service-worker updates must not force a new application generation over an already-open long cook.
+- Product renames do not justify renaming existing localStorage, journal, shopping, settings or cache identifiers. Preserve compatibility unless an explicit migration is implemented and tested.
 
 ## Development rules
 - Read relevant `sources/*.md` plus current GitHub state before significant changes.

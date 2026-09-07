@@ -1,4 +1,4 @@
-# Woodfire Companion — Cooking Context Source
+# Cooking Companion — Cooking Context Source
 
 ## Scope
 This file captures culinary and Ninja Woodfire-specific context already established for the project. It is not a universal cooking standard; it is a project knowledge source that combines user preferences and validated workflow patterns from prior recipe development.

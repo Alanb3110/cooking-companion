@@ -1,4 +1,4 @@
-# Woodfire Companion — Recipe Schema V1
+# Cooking Companion — Recipe Schema V1
 
 ## Status
 Schema V1 is the executable recipe format used by the application. The canonical reference is `recipes/pork-belly-burnt-ends.json`.
@@ -262,7 +262,7 @@ Available-recipe tests validate structured instruction usage, materialize advanc
 
 Observation tests cover label derivation, scheduled rechecks, actual completion and persistence helpers for both tenderness-driven Pork Belly and temperature-driven turkey.
 
-The deterministic planner stress matrix executes every current integer serving count across all available recipes, baseline schedules, 1/5/15/30/60/120 min actual-start, actual-completion and expected-completion delays, plus progressively frozen historical prefixes. The current manifest yields 15,082 scenarios. Fixed historical contradictions are retained as facts; every remaining movable dependency and Woodfire constraint must still be resolved.
+The deterministic planner stress matrix executes every current integer serving count across all available recipes, baseline schedules, 1/5/15/30/60/120 min actual-start, actual-completion and expected-completion delays, plus progressively frozen historical prefixes. The current manifest yields 22,672 scenarios. Fixed historical contradictions are retained as facts; every remaining movable dependency and Woodfire constraint must still be resolved.
 
 See `sources/MULTI_RECIPE_CONTRACT.md`, `sources/STEP_INGREDIENT_USAGE_V1.md` and `sources/OBSERVATIONS_V1.md`.
 

@@ -1,4 +1,4 @@
-# Woodfire Companion — Ingredient Usage V1
+# Cooking Companion — Ingredient Usage V1
 
 ## Goal
 Keep both active-cook instructions **and advance preparation** consistent with the selected serving count without duplicating hard-coded reference quantities inside prose.

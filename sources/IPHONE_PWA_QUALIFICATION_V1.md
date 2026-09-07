@@ -1,4 +1,4 @@
-# Woodfire Companion — iPhone PWA Qualification V1
+# Cooking Companion — iPhone PWA Qualification V1
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# Woodfire Companion — Illustrated Library V1
+# Cooking Companion — Illustrated Library V1
 
 ## Goal
 The recipe library should feel like a cooking product rather than a text catalogue while remaining fully local-first and GitHub Pages compatible.
