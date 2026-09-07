@@ -38,6 +38,7 @@ UI label: `Validée`.
 - Pork Belly Burnt Ends: `validated`. The first real cook generated explicit refinement to cube size and uncovered finishing duration, incorporated into later content versions.
 - Roulé de dinde + gratin de courgettes: `test_cooked`. The recipe is reconstructed from the real meal cooked/discussed on 2026-08-26/28 and uses first-cook baselines.
 - Tacos barbacoa de bœuf fumée: `test_cooked`. The source records it as a real meal promoted into the shared planner pipeline, but no comparable documented refinement loop is yet recorded.
+- Porc coréen effiloché au Woodfire: `test_cooked`. A representative real cook exists; the recipe remains below `validated` until its feedback/refinement loop is documented against the current content.
 - All recipes introduced in the 2026-08-31 planner-pattern and second expansion waves: `untested` until a representative cook is recorded.
 - Poulet miel–sésame–gingembre, udon & légumes sautés: `test_cooked`, cooked successfully in a wok on 2026-09-07. Confirmed: sot-l’y-laisse works well; the clean-glaze/raw-marinade split matters; lightly seasoned udon preserve the balance; vegetables remain crisp; overall result was very good. One successful cook is not yet `validated`.
 

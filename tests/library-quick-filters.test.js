@@ -65,6 +65,8 @@ test('smoked and tested filters use explicit manifest metadata', () => {
   assert.ok(tested.length >= 3);
   assert.ok(tested.every(entry => ['test_cooked', 'validated'].includes(entry.qualification)));
   assert.ok(tested.some(entry => entry.qualification === 'validated'));
+  assert.ok(ids('tested').includes('smoked-beef-barbacoa'));
+  assert.ok(ids('tested').includes('korean-pulled-pork-woodfire'));
 });
 
 test('unknown quick-filter ids safely fall back to all', () => {
