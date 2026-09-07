@@ -8,6 +8,16 @@ function elapsedMax(entry) {
   return Array.isArray(entry?.elapsedRangeMin) ? Number(entry.elapsedRangeMin[1]) : Number.POSITIVE_INFINITY;
 }
 
+function hasAdvancePrepTag(entry) {
+  return normalizedTags(entry).some(tag => tag.includes('prépa la veille') || tag.includes('prépa en avance'));
+}
+
+function isQuickWeeknightMeal(entry) {
+  return entry?.status === 'available'
+    && Number(entry.activePrepMin) <= 30
+    && elapsedMax(entry) <= 60;
+}
+
 export const LIBRARY_QUICK_FILTERS = [
   {
     id: 'all',
@@ -16,21 +26,24 @@ export const LIBRARY_QUICK_FILTERS = [
     matches: () => true
   },
   {
-    id: 'weeknight',
-    label: 'Semaine',
-    detail: '≤ 60 min au total · ≤ 30 min actives',
-    matches: entry => entry?.status === 'available'
-      && Number(entry.activePrepMin) <= 30
-      && elapsedMax(entry) <= 60
+    id: 'tonight',
+    label: 'Ce soir',
+    detail: 'repas complet · ≤ 60 min au total · ≤ 30 min actives',
+    matches: isQuickWeeknightMeal
   },
   {
-    id: 'overnight',
-    label: 'Prépa J-1',
-    detail: 'préparation ou marinade en avance',
-    matches: entry => {
-      const tags = normalizedTags(entry);
-      return entry?.status === 'available' && tags.some(tag => tag.includes('prépa la veille') || tag.includes('prépa en avance'));
-    }
+    id: 'tomorrow-quick',
+    label: 'Demain rapide',
+    detail: 'prépa ou marinade J-1 · puis ≤ 60 min le lendemain',
+    matches: entry => hasAdvancePrepTag(entry) && isQuickWeeknightMeal(entry)
+  },
+  {
+    id: 'tomorrow-long',
+    label: 'Demain long',
+    detail: 'prépa ou marinade J-1 · puis cuisson ≥ 3 h',
+    matches: entry => entry?.status === 'available'
+      && hasAdvancePrepTag(entry)
+      && elapsedMax(entry) >= 180
   },
   {
     id: 'long',
