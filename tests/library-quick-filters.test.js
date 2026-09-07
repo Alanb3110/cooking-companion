@@ -24,14 +24,14 @@ test('quick filters expose the intended one-tap browsing contexts', () => {
 
 test('tonight means at most 60 min elapsed and 30 min active prep', () => {
   const weeknight = filterLibraryEntries(library.recipes, 'tonight');
-  assert.ok(weeknight.length >= 8, 'Library should offer a meaningful weeknight shortlist.');
+  assert.ok(weeknight.length >= 2, 'Library should offer immediate-cook meals without prior preparation.');
   for (const entry of weeknight) {
     assert.equal(entry.status, 'available');
     assert.ok(entry.activePrepMin <= 30, `${entry.id}: active prep exceeds 30 min.`);
     assert.ok(entry.elapsedRangeMin[1] <= 60, `${entry.id}: elapsed range exceeds 60 min.`);
+    assert.doesNotMatch((entry.tags || []).join(' '), /Prépa (la veille|en avance)/i, `${entry.id}: requires advance preparation.`);
   }
-  assert.ok(ids('tonight').includes('egg-fried-rice'));
-  assert.ok(ids('tonight').includes('woodfire-chicken-fajitas'));
+  assert.deepEqual(ids('tonight'), ['egg-fried-rice', 'honey-sesame-ginger-chicken-udon']);
 });
 
 test('tomorrow filters distinguish a quick next-day cook from a long next-day cook', () => {

@@ -15,7 +15,7 @@ V1 filters:
 | Filter | Rule | Product intent |
 | --- | --- | --- |
 | `Toutes` | no filtering | full catalogue |
-| `Ce soir` | `status=available`, `activePrepMin <= 30`, `elapsedRangeMin.max <= 60` | realistic complete meal after work |
+| `Ce soir` | `status=available`, no explicit advance-prep tag, `activePrepMin <= 30`, `elapsedRangeMin.max <= 60` | realistic complete meal after work, without a required prior-evening marinade/prep |
 | `Demain rapide` | explicit advance-prep tag plus the `Ce soir` threshold | marinade or preparation tonight, then a genuinely quick cook tomorrow |
 | `Demain long` | explicit advance-prep tag plus `elapsedRangeMin.max >= 180` | start a marinade/prep tonight for a long cook tomorrow |
 | `Cuisson longue` | `status=available`, `elapsedRangeMin.max >= 180` | long/passive cooks worth planning around |

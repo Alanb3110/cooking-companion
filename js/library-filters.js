@@ -12,10 +12,14 @@ function hasAdvancePrepTag(entry) {
   return normalizedTags(entry).some(tag => tag.includes('prépa la veille') || tag.includes('prépa en avance'));
 }
 
-function isQuickWeeknightMeal(entry) {
+function isQuickCook(entry) {
   return entry?.status === 'available'
     && Number(entry.activePrepMin) <= 30
     && elapsedMax(entry) <= 60;
+}
+
+function isQuickTonightMeal(entry) {
+  return isQuickCook(entry) && !hasAdvancePrepTag(entry);
 }
 
 export const LIBRARY_QUICK_FILTERS = [
@@ -28,14 +32,14 @@ export const LIBRARY_QUICK_FILTERS = [
   {
     id: 'tonight',
     label: 'Ce soir',
-    detail: 'repas complet · ≤ 60 min au total · ≤ 30 min actives',
-    matches: isQuickWeeknightMeal
+    detail: 'sans prépa J-1 · ≤ 60 min au total · ≤ 30 min actives',
+    matches: isQuickTonightMeal
   },
   {
     id: 'tomorrow-quick',
     label: 'Demain rapide',
     detail: 'prépa ou marinade J-1 · puis ≤ 60 min le lendemain',
-    matches: entry => hasAdvancePrepTag(entry) && isQuickWeeknightMeal(entry)
+    matches: entry => hasAdvancePrepTag(entry) && isQuickCook(entry)
   },
   {
     id: 'tomorrow-long',
