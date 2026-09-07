@@ -17,31 +17,35 @@ function ids(filterId) {
 test('quick filters expose the intended one-tap browsing contexts', () => {
   assert.deepEqual(
     LIBRARY_QUICK_FILTERS.map(filter => filter.id),
-    ['all', 'weeknight', 'overnight', 'long', 'smoked', 'tested']
+    ['all', 'tonight', 'tomorrow-quick', 'tomorrow-long', 'long', 'smoked', 'tested']
   );
   assert.equal(ids('all').length, library.recipes.length);
 });
 
-test('weeknight means at most 60 min elapsed and 30 min active prep', () => {
-  const weeknight = filterLibraryEntries(library.recipes, 'weeknight');
-  assert.ok(weeknight.length >= 8, 'Library should offer a meaningful weeknight shortlist.');
+test('tonight means at most 60 min elapsed and 30 min active prep', () => {
+  const weeknight = filterLibraryEntries(library.recipes, 'tonight');
+  assert.ok(weeknight.length >= 2, 'Library should offer immediate-cook meals without prior preparation.');
   for (const entry of weeknight) {
     assert.equal(entry.status, 'available');
     assert.ok(entry.activePrepMin <= 30, `${entry.id}: active prep exceeds 30 min.`);
     assert.ok(entry.elapsedRangeMin[1] <= 60, `${entry.id}: elapsed range exceeds 60 min.`);
+    assert.doesNotMatch((entry.tags || []).join(' '), /Prépa (la veille|en avance)/i, `${entry.id}: requires advance preparation.`);
   }
-  assert.ok(ids('weeknight').includes('egg-fried-rice'));
-  assert.ok(ids('weeknight').includes('woodfire-chicken-fajitas'));
+  assert.deepEqual(ids('tonight'), ['egg-fried-rice', 'honey-sesame-ginger-chicken-udon']);
 });
 
-test('overnight filter is driven by explicit advance-prep tags', () => {
-  const overnight = filterLibraryEntries(library.recipes, 'overnight');
-  assert.ok(overnight.length >= 10, 'Overnight-prep recipes should remain a useful browse group.');
-  for (const entry of overnight) {
+test('tomorrow filters distinguish a quick next-day cook from a long next-day cook', () => {
+  const quickTomorrow = filterLibraryEntries(library.recipes, 'tomorrow-quick');
+  const longTomorrow = filterLibraryEntries(library.recipes, 'tomorrow-long');
+  assert.ok(quickTomorrow.length >= 8, 'Quick next-day recipes should remain a useful browse group.');
+  assert.ok(longTomorrow.length >= 1, 'Long next-day recipes should remain discoverable.');
+  for (const entry of [...quickTomorrow, ...longTomorrow]) {
     assert.match((entry.tags || []).join(' '), /Prépa (la veille|en avance)/i, entry.id);
   }
-  assert.ok(ids('overnight').includes('char-siu-pork-rice-cucumber'));
-  assert.ok(ids('overnight').includes('korean-pulled-pork-woodfire'));
+  assert.ok(quickTomorrow.every(entry => entry.activePrepMin <= 30 && entry.elapsedRangeMin[1] <= 60));
+  assert.ok(longTomorrow.every(entry => entry.elapsedRangeMin[1] >= 180));
+  assert.ok(ids('tomorrow-quick').includes('char-siu-pork-rice-cucumber'));
+  assert.deepEqual(ids('tomorrow-long'), ['korean-pulled-pork-woodfire']);
 });
 
 test('long cook means an elapsed range reaching at least three hours', () => {
@@ -61,6 +65,8 @@ test('smoked and tested filters use explicit manifest metadata', () => {
   assert.ok(tested.length >= 3);
   assert.ok(tested.every(entry => ['test_cooked', 'validated'].includes(entry.qualification)));
   assert.ok(tested.some(entry => entry.qualification === 'validated'));
+  assert.ok(ids('tested').includes('smoked-beef-barbacoa'));
+  assert.ok(ids('tested').includes('korean-pulled-pork-woodfire'));
 });
 
 test('unknown quick-filter ids safely fall back to all', () => {

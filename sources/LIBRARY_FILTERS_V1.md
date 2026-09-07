@@ -15,8 +15,9 @@ V1 filters:
 | Filter | Rule | Product intent |
 | --- | --- | --- |
 | `Toutes` | no filtering | full catalogue |
-| `Semaine` | `status=available`, `activePrepMin <= 30`, `elapsedRangeMin.max <= 60` | realistic quick meal after work |
-| `Prépa J-1` | explicit manifest tag `Prépa la veille` or `Prépa en avance` | shift work to the previous evening |
+| `Ce soir` | `status=available`, no explicit advance-prep tag, `activePrepMin <= 30`, `elapsedRangeMin.max <= 60` | realistic complete meal after work, without a required prior-evening marinade/prep |
+| `Demain rapide` | explicit advance-prep tag plus the `Ce soir` threshold | marinade or preparation tonight, then a genuinely quick cook tomorrow |
+| `Demain long` | explicit advance-prep tag plus `elapsedRangeMin.max >= 180` | start a marinade/prep tonight for a long cook tomorrow |
 | `Cuisson longue` | `status=available`, `elapsedRangeMin.max >= 180` | long/passive cooks worth planning around |
 | `Fumé` | explicit `Fumé` tag or `SMOKER` in the card mode eyebrow | meals with a real smoking phase |
 | `Testées` | qualification is `test_cooked` or `validated` | recipes already cooked in real conditions |
@@ -34,7 +35,7 @@ Reasons:
 - easy automated testing of boundary conditions;
 - future filters can be added when a genuine browsing need appears.
 
-If future user testing shows that elapsed time alone is insufficient — for example a 55 min meal with 10 min active work feels more practical than a 35 min meal with 30 min active work — the thresholds can evolve here without changing Recipe Schema V1.
+The former generic `Prépa J-1` context was intentionally split because it mixed two different decisions: a quick next-day dinner and a long cook worth preparing in advance. If future user testing shows that elapsed time alone is insufficient — for example a 55 min meal with 10 min active work feels more practical than a 35 min meal with 30 min active work — the thresholds can evolve here without changing Recipe Schema V1.
 
 ## Persistence
 
